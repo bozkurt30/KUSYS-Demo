@@ -1,0 +1,40 @@
+﻿@model KUSYS_Demo.Models.Course
+
+<link rel="stylesheet" href="~/css/details.css" />
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<style>
+    .modal-content {
+        position: absolute;
+        left: -38%;
+        width: 200%;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-12 mb-5 mb-lg-0 wow fadeIn">
+            <div class="card border-0 shadow">
+                <img style="width: 100%;margin: auto;" src="/img/c-sharp-ders.png" alt="...">
+                <div class="card-body p-1-9 p-xl-5">
+                    <div class="mb-4">
+                        <h3 class="h4 mb-0">@Model.CourseName</h3>
+                        <span class="text-primary"><strong style="color:red">Tarih Adı :</strong>  @Model.DateCourse</span>
+                    </div>
+                </div>
+                <div class="ps-lg-1-6 ps-xl-5">
+                    <div class="mb-5 wow fadeIn">
+                        <div class="text-start mb-1-6 wow fadeIn">
+                            <h2 class="h1 mb-0 text-primary">#About Me</h2>
+                        </div>
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

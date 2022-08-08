@@ -1,0 +1,23 @@
+﻿@model KUSYS_Demo.Models.Student
+
+
+<div class="card border-0 shadow">
+    <img style="width: 50%;margin: auto;" src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+    <div class="card-body p-1-9 p-xl-5">
+        <div class="mb-4">
+            <h3 class="h4 mb-0">@Model.FirstName @Model.LastName</h3>
+            <span class="text-primary"><strong style="color:red">Kullanıcı Adı :</strong>  @Model.Username</span>
+        </div>
+        <ul class="list-unstyled mb-4">
+            <li class="mb-3"><a href="#!"><i class="far fa-envelope display-25 me-3 text-secondary"></i> test@test.com </a></li>
+            <li class="mb-3"><a href="#!"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>+012 (345) 6789</a></li>
+            <li><a href="#!"><i class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>Türkiye / İstanbul</a></li>
+        </ul>
+        <ul class="social-icon-style2 ps-0">
+            <li><a href="#!" class="rounded-3"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#!" class="rounded-3"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#!" class="rounded-3"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="#!" class="rounded-3"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </div>
+</div>

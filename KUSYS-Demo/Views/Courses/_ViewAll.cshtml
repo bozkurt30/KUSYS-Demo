@@ -1,0 +1,48 @@
+﻿@model IEnumerable<KUSYS_Demo.Models.Course>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCourse)
+            </th>
+            <th>
+                <a onclick="showInPopup(`@Url.Action("AddOrEdit","Courses",null,Context.Request.Scheme)`,'Yeni Kurs','Ekle','btn-primary','#0d6efd')" class="btn btn-success text-white"><i class="fa-solid fa-user-plus"></i> Kurs Ekle</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCourse)
+                </td>
+                <td>
+                    <a onclick="showInPopup(`@Url.Action("AddOrEdit","Courses",new { id= item.CourseId},Context.Request.Scheme)`,'Kurs Güncelle','Güncelle','btn-warning','#ffc107','hidden')" class="btn btn-warning text-white"><i class="fas fa-pencil"></i> </a>
+                    @* <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
+                        <a asp-action="Details" asp-route-id="@item.StudentId">Details</a>*@
+                    <form asp-action="Delete" asp-route-id="@item.CourseId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                        <input type="hidden" asp-for="@item.CourseId" />
+                        @*<input type="submit" value="" class="btn btn-danger" />*@
+                        <button class="btn-danger btn"><i class="fa-solid fa-trash-can"></i></button>
+                    </form>
+
+                    <a style="width: 2.6rem;" onclick="showInPopup(`@Url.Action("Details","Courses",new { id= item.CourseId},Context.Request.Scheme)`,'Kurs Detay Sayfası','','btn-primary','green')" class="btn btn-primary text-white"><i class="fas fa-info"></i>  </a>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

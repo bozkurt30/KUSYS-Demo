@@ -1,0 +1,42 @@
+﻿@model KUSYS_Demo.Models.Entities.LoginModel
+
+
+@{
+   Layout = null;
+}
+<link rel="stylesheet" href="/css/logincss.css"/>
+<body>
+    <div class="container">
+        <h1>Giriş Yap.!</h1>
+        <form asp-action="Login">
+            <div class="form-control">
+                <input asp-for="Username" type="text" required>
+                <label>Kullanıcı Adı</label>
+                <span asp-validation-for="Username" class="text-danger"></span>
+                
+            </div>
+
+            <div class="form-control">
+                <input asp-for="Password" type="password" required>
+                <label>Şifre</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <button class="btn">Giriş</button>
+
+        </form>
+        <p style="color:red;font-size:1rem;font-family:Arial">@Html.Raw(TempData["error"])</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<script>
+const labels = document.querySelectorAll('.form-control label')
+
+labels.forEach(label => {
+    label.innerHTML = label.innerText
+        .split('')
+        .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)
+        .join('')
+})
+</script>

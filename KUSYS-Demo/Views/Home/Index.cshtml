@@ -1,0 +1,23 @@
+﻿@model IEnumerable<KUSYS_Demo.Models.Course>
+<link rel="stylesheet" href="~/css/homePage.css">
+
+<div class="products">
+    @foreach (var item in Model)
+    {
+        <div class="product">
+            <img src="https://i.imgur.com/WwkgPd5.jpg">
+            <h1>@item.CourseName </h1> <div class="smallDate"><small> @item.DateCourse</small></div>
+            <p class="description">@item.Description</p>
+              <form asp-action="SelectCourse" asp-route-id="@item.CourseId" onsubmit="return jQueryAjaxSelectCoursePost(this);">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@item.CourseId" />
+            <br />
+            <div class="form-group">
+                <button style="width: 100%;" type="submit" class="price btn-primary btn"> Seç</button>
+            </div>
+        </form>
+        </div>
+
+    } 
+</div>
+
