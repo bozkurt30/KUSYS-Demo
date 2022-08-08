@@ -18,9 +18,14 @@ namespace KUSYS_Demo.Controllers
         public IActionResult Index()
         {
             ViewBag.username = HttpContext.Session.GetString("username");
+            var list = _context.Courses.ToList();
+            if (list.Count == 0)
+            {
+                TempData["coursList"] = "Veritabanımızda herahangi bir kurs bulunmuyor.! Çok yakında kurslarımızla buradayız. Kurs eklemek için yukardaki bağlantıya tıklayınız. Bu yetki sadece yöneticilerde";
+            }
             return _context.Courses != null ?
                         View(_context.Courses.ToList()) :
-                        Problem("Entity set 'AppDbContext.Courses'  is null.");
+                        Problem("Entity set 'AppDbContext.Courses'  is null.");           
         }
 
 
